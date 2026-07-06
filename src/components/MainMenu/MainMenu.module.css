@@ -1,0 +1,122 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  background: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Bungee', sans-serif;
+}
+
+.name {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  font-family: 'Pacifico', cursive;
+  font-size: 2rem;
+  color: #ff2e93;
+  text-shadow:
+    -1px -1px 0 #fff,
+     1px -1px 0 #fff,
+    -1px  1px 0 #fff,
+     1px  1px 0 #fff;
+  z-index: 10;
+}
+
+.menuLabel {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  font-size: 1.5rem;
+  color: #ff2e93;
+  text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.trapezoid {
+  width: 80%;
+  max-width: 700px;
+  height: 70vh;
+  max-height: 500px;
+  clip-path: polygon(5% 0, 95% 0, 100% 100%, 0 100%);
+  background: #141414;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  overflow: hidden;
+}
+
+.trapezoid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.15'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  pointer-events: none;
+  animation: noiseShift 8s linear infinite;
+}
+
+@keyframes noiseShift {
+  0% { background-position: 0 0; }
+  100% { background-position: 200px 200px; }
+}
+
+.menuItem {
+  position: relative;
+  font-size: 2.5rem;
+  color: #ff2e93;
+  padding: 12px 48px;
+  cursor: pointer;
+  z-index: 1;
+  transition: color 150ms ease;
+  user-select: none;
+}
+
+.menuItem::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #00c853;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 150ms ease;
+  z-index: -1;
+}
+
+.menuItem:hover {
+  color: #fff;
+}
+
+.menuItem:hover::before {
+  transform: scaleX(1);
+}
+
+@media (max-width: 768px) {
+  .name {
+    top: 20px;
+    left: 20px;
+    font-size: 1.5rem;
+  }
+
+  .menuLabel {
+    top: 20px;
+    right: 20px;
+    font-size: 1.2rem;
+  }
+
+  .trapezoid {
+    width: 90%;
+    height: 60vh;
+    clip-path: polygon(2% 0, 98% 0, 100% 100%, 0 100%);
+  }
+
+  .menuItem {
+    font-size: 1.8rem;
+    padding: 10px 32px;
+  }
+}
