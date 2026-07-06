@@ -7,7 +7,16 @@ interface NowSectionProps {
 function NowSection({ onBack }: NowSectionProps) {
   return (
     <SectionWrapper title="NOW" onBack={onBack}>
-      <p>Now placeholder — what I'm currently working on.</p>
+      <p>
+        Building a token-efficient LLM routing agent that intelligently routes
+        coding tasks between local and remote models — built during a buildathon
+        and designed to minimize API costs without sacrificing quality.
+      </p>
+      <p style={{ marginTop: 16 }}>
+        Also evaluating a freelance project to build an internal financial ledger
+        and operations platform for an ad agency, handling invoice tracking,
+        expense reporting, and client billing workflows.
+      </p>
     </SectionWrapper>
   )
 }
