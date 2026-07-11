@@ -18,7 +18,7 @@ jobs:
         with:
           folder: .
           branch: gh-pages
-          clean-excludes: |
+          clean-exclude: |
             .github
             .git
             .gitignore
